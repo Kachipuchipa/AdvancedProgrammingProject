@@ -1,0 +1,5 @@
+﻿  CargoManager.cpp
+C:\Users\b1235\source\repos\AdvancedProgrammingProject\AdvancedProgrammingProject\CargoManager.cpp(61,1): warning C4715: 'statusToString': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  AdvancedProgrammingProject.vcxproj -> C:\Users\b1235\source\repos\AdvancedProgrammingProject\x64\Debug\AdvancedProgrammingProject.exe
+  'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+  배치 파일이 아닙니다.

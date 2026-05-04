@@ -18,6 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Cargo.cpp" />
+    <ClCompile Include="CargoManager.cpp" />
+    <ClCompile Include="Deliverer.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Downloads\계획서.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cargo.h" />
+    <ClInclude Include="CargoManager.h" />
+    <ClInclude Include="Deliverer.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -122,10 +136,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="test.cpp" />
-    <ClCompile Include="소asdfdasfasdfdasdfasdf스.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

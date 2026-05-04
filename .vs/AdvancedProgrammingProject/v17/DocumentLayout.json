@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\b1235\\source\\repos\\AdvancedProgrammingProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63BCD6E7-D6E8-4C33-B313-64F1D0133845}|AdvancedProgrammingProject\\AdvancedProgrammingProject.vcxproj|C:\\Users\\b1235\\source\\repos\\AdvancedProgrammingProject\\AdvancedProgrammingProject\\\uC18C\uC2A4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{63BCD6E7-D6E8-4C33-B313-64F1D0133845}|AdvancedProgrammingProject\\AdvancedProgrammingProject.vcxproj|solutionrelative:AdvancedProgrammingProject\\\uC18C\uC2A4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{63BCD6E7-D6E8-4C33-B313-64F1D0133845}|AdvancedProgrammingProject\\AdvancedProgrammingProject.vcxproj|C:\\Users\\b1235\\source\\repos\\AdvancedProgrammingProject\\AdvancedProgrammingProject\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{63BCD6E7-D6E8-4C33-B313-64F1D0133845}|AdvancedProgrammingProject\\AdvancedProgrammingProject.vcxproj|solutionrelative:AdvancedProgrammingProject\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -23,27 +19,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "\uC18C\uC2A4.cpp",
-              "DocumentMoniker": "C:\\Users\\b1235\\source\\repos\\AdvancedProgrammingProject\\AdvancedProgrammingProject\\\uC18C\uC2A4.cpp",
-              "RelativeDocumentMoniker": "AdvancedProgrammingProject\\\uC18C\uC2A4.cpp",
-              "ToolTip": "C:\\Users\\b1235\\source\\repos\\AdvancedProgrammingProject\\AdvancedProgrammingProject\\\uC18C\uC2A4.cpp",
-              "RelativeToolTip": "AdvancedProgrammingProject\\\uC18C\uC2A4.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-04T10:48:59.765Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "test.cpp",
               "DocumentMoniker": "C:\\Users\\b1235\\source\\repos\\AdvancedProgrammingProject\\AdvancedProgrammingProject\\test.cpp",
               "RelativeDocumentMoniker": "AdvancedProgrammingProject\\test.cpp",
               "ToolTip": "C:\\Users\\b1235\\source\\repos\\AdvancedProgrammingProject\\AdvancedProgrammingProject\\test.cpp",
               "RelativeToolTip": "AdvancedProgrammingProject\\test.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-04T10:47:14.437Z"
+              "WhenOpened": "2026-05-04T10:47:14.437Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",

@@ -5,12 +5,13 @@
 class CargoManager
 {
 	Cargo** cargos;
-	//TODO 배달기사 , 배달기사 수 
+	Deliverer** deliverers;
+	int deliverersCount = 1;
 	int capacity = 1;
 	int size = 0;
 
 public:
-	void addCargoForm(); //TODO 등록시 우선도 순으로 정렬하면서 등록
+	void addCargoForm(); 
 
 	void addCargo(std::string& name, bool isExpress, int priority);
 
@@ -23,4 +24,5 @@ public:
 	void assignCargo(); // 물류를 배송기사에게 할당하면 배송기사가 배달을 시작한다
 
 	CargoManager();
+	//TODO 소멸자
 };

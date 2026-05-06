@@ -15,6 +15,8 @@ public:
 	
 	Deliverer(int id);
 
+	int getId();
+	bool IsAssigned();
 	void deleverSatrt();
 	void checkDeliver();
 	void delegateCargo(Cargo* cargo);

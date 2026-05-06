@@ -10,6 +10,16 @@ Deliverer::Deliverer(int id)
 	//deliver_start = 0;
 }
 
+int Deliverer::getId()
+{
+	return id;
+}
+
+bool Deliverer::IsAssigned()
+{
+	return isAssigned;
+}
+
 void Deliverer::deleverSatrt()
 {
 	deliver_start = time(nullptr);

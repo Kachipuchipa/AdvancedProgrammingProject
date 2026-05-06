@@ -133,7 +133,25 @@ void CargoManager::assignCargo()
 		Sleep(1500);
 	}
 	cout << endl;
-	//for(int i = 0; i< ) //TODO 
+
+
+	Deliverer* deliver;
+
+	for (int i = 0; i < deliverersCount; i++)
+	{
+		if (deliverers[i]->IsAssigned() == false)
+		{
+			deliver = deliverers[i];
+			break;
+		}
+	}
+
+	cout << deliver->getId() << "번 기사님이 배정되었습니다." << endl;
+
+	for (int i = 0; i < size; i++)
+	{
+		cargos[i].
+	}
 }
 
 
@@ -141,4 +159,5 @@ void CargoManager::assignCargo()
 CargoManager::CargoManager()
 {
 	cargos = new Cargo * [capacity];
+	deliverers = new Deliverer*[deliverersCount];
 }

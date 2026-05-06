@@ -4,7 +4,7 @@
 
 class Deliverer
 {
-	int id = 0;
+	int id ;
 	Cargo* assignedCargo;
 	bool isAssigned = false;
 	
@@ -17,7 +17,7 @@ public:
 
 	int getId();
 	bool IsAssigned();
-	void deleverSatrt();
+	void startDelivery();
 	void checkDeliver();
 	void delegateCargo(Cargo* cargo);
 

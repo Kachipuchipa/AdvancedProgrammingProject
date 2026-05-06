@@ -20,24 +20,27 @@ bool Deliverer::IsAssigned()
 	return isAssigned;
 }
 
-void Deliverer::deleverSatrt()
+void Deliverer::startDelivery()
 {
 	deliver_start = time(nullptr);
 }
 
 
 
-void Deliverer::checkDeliver()
+void Deliverer::checkDeliver() //배송이 완료될 시간이 지나더라도 체크해주지 않으면 완료되지 않는다
 {
-	if (time(nullptr) - deliver_start < 10)
+	if (time(nullptr) - deliver_start > 10)
 	{
 		assignedCargo->setStatus(Status::DONE);
+		assignedCargo = nullptr;
 		isAssigned = false;
 	}
 }
 
-void Deliverer::delegateCargo(Cargo* cargo)
+void Deliverer::delegateCargo(Cargo* cargo) //TODO : start 와 합칠지 고민
 {
 	assignedCargo = cargo;
 	isAssigned = true;
+	cargo->setStatus(DELIVERING);
+	cargo->setDelivererID(id);
 }

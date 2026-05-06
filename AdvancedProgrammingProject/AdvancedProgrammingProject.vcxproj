@@ -31,6 +31,7 @@
     <ClInclude Include="Cargo.h" />
     <ClInclude Include="CargoManager.h" />
     <ClInclude Include="Deliverer.h" />
+    <ClInclude Include="PlayManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -2,7 +2,7 @@
 #include <string>
 using std::string;
 
-enum Status { WATING, DELIVERING, DONE, NONE };
+enum Status { WATING, DELIVERING, DONE};
 
 class Cargo
 {
@@ -14,7 +14,7 @@ class Cargo
 
 	Status status; // 배송상태
 
-	int delivererID; // 배송원ID TODO: 배송원클래스의 스태틱변수로 총인원 관리
+	int delivererID; // 배송원ID 
 
 public:
 	Cargo();

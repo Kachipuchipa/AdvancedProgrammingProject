@@ -5,15 +5,15 @@
 class CargoManager
 {
 	Cargo** cargos;
-	Deliverer** deliverers;
+	Deliverer** deliverers; //TODO 배송기사 구매시 수용량 늘리기
 	int deliverersCount = 1;
 	int capacity = 1;
 	int size = 0;
 
+	void addCargo(std::string& name, bool isExpress, int priority);
 public:
 	void addCargoForm(); 
 
-	void addCargo(std::string& name, bool isExpress, int priority);
 
 	void printCargo(); // 목록조회
 

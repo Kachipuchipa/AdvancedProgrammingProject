@@ -1,6 +1,8 @@
 #pragma once
-#include "Cargo.h"
+
 #include <ctime>
+class Cargo;
+class CargoManager; //순환참조로 인한 전방참조
 
 class Deliverer
 {
@@ -8,6 +10,8 @@ class Deliverer
 	Cargo* assignedCargo;
 	bool isAssigned = false;
 	
+	int pay = 10000;
+
 	time_t deliver_start;
 
 

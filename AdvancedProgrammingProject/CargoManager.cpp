@@ -4,6 +4,17 @@
 #include <fstream>
 using namespace std;
 
+
+
+CargoManager& CargoManager::getInstance() { //Deliverer에서 접근위해 싱글톤
+	static CargoManager instance;
+	return instance;
+}
+
+ int CargoManager::getMoney() { return money; }
+
+void CargoManager::setMoney(int m) { money = m; }
+
 void CargoManager::addCargoForm() // 잘못된입력값 예외처리 생략
 {
 	string name;
@@ -11,7 +22,7 @@ void CargoManager::addCargoForm() // 잘못된입력값 예외처리 생략
 	char temp;
 	int priority;
 	cout << "=========================================" << endl;
-	cout << "			      물류 등록                " << endl;
+	cout << "                 물류 등록                " << endl;
 	cout << "=========================================" << endl;
 	cout << "이름 : "; cin.ignore(); getline(cin, name);
 	cout << "특급여부(Y/N) : "; cin >> temp; isExpress = (temp == 'Y') ? true : false;
@@ -52,7 +63,7 @@ void CargoManager::addCargo(string& name, bool isExpress, int priority)
 		}
 		else break;
 	}
-
+	
 }
 
 string statusToString(Status s)
@@ -68,7 +79,7 @@ void CargoManager::printCargo()
 	cout << "                 물류 조회                " << endl;
 	cout << "=========================================" << endl;
 
-	for (int i = 0; i < deliverersCount; i++)
+	for (int i = 0; i < deliverersSize; i++)
 	{
 		if (deliverers[i]->IsAssigned())
 			deliverers[i]->checkDeliver();
@@ -90,50 +101,10 @@ void CargoManager::printCargo()
 
 void CargoManager::saveFile()
 {
-	const char* filename = "cargos.txt";
-	ofstream ofs(filename, ios::trunc);
-	if (!ofs.is_open()) {
-		cerr << "파일을 열 수 없습니다: " << filename << endl;
-		return;
-	}
-
-	ofs << size << '\n';
-
-	for (int i = 0; i < size; ++i) {
-		ofs << cargos[i]->getName() << '\t'
-			<< (cargos[i]->IsExpress() ? 1 : 0) << '\t'
-			<< cargos[i]->getPriority() << '\t'
-			<< static_cast<int>(cargos[i]->getStatus()) << '\t'
-			<< cargos[i]->getDelivererID() << '\n';
-	}
-
-	ofs.close();
 }
 
-void CargoManager::loadFile() { // TODO 테스트하기
-	//-tx for claude and codex-
-
-	ifstream ifs("cargos.txt");
-	if (!ifs.is_open()) return;
-
-	int count = 0;
-	ifs >> count;
-	ifs.ignore();
-
-	for (int i = 0; i < count; i++) {
-		string name;
-		int isExpress, priority, statusInt, delivererID;
-
-		getline(ifs, name, '\t');
-		if (!name.empty() && name.back() == '\r') name.pop_back();
-		ifs >> isExpress >> priority >> statusInt >> delivererID;
-		ifs.ignore();
-
-		addCargo(name, (bool)isExpress, priority);
-		cargos[size - 1]->setStatus(static_cast<Status>(statusInt));
-		cargos[size - 1]->setDelivererID(delivererID);
-	}
-	ifs.close();
+void CargoManager::loadFile() { // TODO 
+	
 }
 
 void CargoManager::assignCargo()
@@ -142,7 +113,7 @@ void CargoManager::assignCargo()
 	for (int i = 0; i < 3; i++)
 	{
 		cout << ". ";
-		Sleep(1500);
+		//Sleep(1500); TODO 주석제거
 	}
 	cout << endl;
 
@@ -150,7 +121,7 @@ void CargoManager::assignCargo()
 	Deliverer* deliverer = nullptr;
 	Cargo* cargo = nullptr;
 
-	for (int i = 0; i < deliverersCount; i++)
+	for (int i = 0; i < deliverersSize; i++)
 	{
 		if (deliverers[i]->IsAssigned() == false)
 		{
@@ -164,13 +135,13 @@ void CargoManager::assignCargo()
 		cout << "현재 배송가능한 기사가 없습니다." << endl;
 		return;
 	}
-	cout << deliverer->getId() << "번 기사님이 배정되었습니다." << endl;
+	cout << deliverer->getId() << "번 기사님이 배정되었습니다." << endl << endl;
 
 	cout << "대기중인 물류를 탐색합니다." << endl;
 	for (int i = 0; i < 3; i++)
 	{
 		cout << ". ";
-		Sleep(1500);
+		//Sleep(1500); TODO 주석제거
 	}
 	cout << endl;
 
@@ -188,11 +159,45 @@ void CargoManager::assignCargo()
 		return;
 	}
 	deliverer->delegateCargo(cargo);
-	cout << cargo->getName() << "을/를 배송합니다." << endl;
+	cout << cargo->getName() << "을(를) 배송합니다." << endl;
 
 	deliverer->startDelivery();
 
 
+}
+
+void CargoManager::buyDeliverer()
+{
+
+	if (money < 5000)
+	{
+		cout << "*잔액부족*" << endl;
+		cout << 5000 - money << "원 부족합니다." << endl;
+		return;
+	}
+
+	money -= 5000;
+	cout << "배송기사가 " << deliverersSize << "명에서 " << deliverersSize + 1 << "명이 됐습니다." << endl;
+	deliverersSize++;
+
+	if (deliverersSize >= delivererCapacity)
+	{
+		delivererCapacity *= 2;
+		Deliverer** temp = deliverers;
+		deliverers = new Deliverer * [delivererCapacity];
+		for (int i = 0; i < deliverersSize; i++)
+		{
+			deliverers[i] = temp[i];
+		}
+		deliverers[deliverersSize - 1] = new Deliverer(deliverersSize);
+		delete[] temp;
+	}
+
+}
+
+void CargoManager::checkAccount()
+{
+	cout << "현재 잔액 : " << money << "원" << endl;
 }
 
 
@@ -202,9 +207,10 @@ void CargoManager::assignCargo()
 CargoManager::CargoManager()
 {
 	cargos = new Cargo * [capacity];
-	deliverers = new Deliverer * [deliverersCount];
-	for (int i = 0; i < deliverersCount; i++)
+	deliverers = new Deliverer * [delivererCapacity];
+	for (int i = 0; i < delivererCapacity; i++)
 	{
-		deliverers[i] = new Deliverer(deliverersCount);
+		deliverers[i] = new Deliverer(deliverersSize);
+		deliverersSize++;
 	}
 }

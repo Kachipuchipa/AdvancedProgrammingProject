@@ -1,5 +1,5 @@
 #include "Deliverer.h"
-
+#include "CargoManager.h"
 
 
 Deliverer::Deliverer(int id)
@@ -29,11 +29,14 @@ void Deliverer::startDelivery()
 
 void Deliverer::checkDeliver() //배송이 완료될 시간이 지나더라도 체크해주지 않으면 완료되지 않는다
 {
-	if (time(nullptr) - deliver_start > 10)
+	if (time(nullptr) - deliver_start > 30)
 	{
 		assignedCargo->setStatus(Status::DONE);
 		assignedCargo = nullptr;
 		isAssigned = false;
+		
+		CargoManager cm = CargoManager::getInstance();
+		cm.setMoney(cm.getMoney() + pay);
 	}
 }
 

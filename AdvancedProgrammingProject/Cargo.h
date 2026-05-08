@@ -15,7 +15,7 @@ class Cargo
 	Status status; // 배송상태
 
 	int delivererID; // 배송원ID 
-
+	
 public:
 	Cargo();
 	Cargo(string name, bool isExpress, int priority);

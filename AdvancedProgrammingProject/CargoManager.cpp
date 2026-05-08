@@ -177,8 +177,6 @@ void CargoManager::buyDeliverer()
 	}
 
 	money -= 5000;
-	cout << "배송기사가 " << deliverersSize << "명에서 " << deliverersSize + 1 << "명이 됐습니다." << endl;
-	deliverersSize++;
 
 	if (deliverersSize >= delivererCapacity)
 	{
@@ -189,10 +187,12 @@ void CargoManager::buyDeliverer()
 		{
 			deliverers[i] = temp[i];
 		}
-		deliverers[deliverersSize - 1] = new Deliverer(deliverersSize);
+		
 		delete[] temp;
 	}
-
+	deliverersSize++;
+	deliverers[deliverersSize - 1] = new Deliverer(deliverersSize);
+	cout << "배송기사가 " << deliverersSize - 1 << "명에서 " << deliverersSize << "명이 됐습니다." << endl;
 }
 
 void CargoManager::checkAccount()

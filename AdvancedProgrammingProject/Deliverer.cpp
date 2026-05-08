@@ -35,7 +35,7 @@ void Deliverer::checkDeliver() //배송이 완료될 시간이 지나더라도 체크해주지 않으
 		assignedCargo = nullptr;
 		isAssigned = false;
 		
-		CargoManager cm = CargoManager::getInstance();
+		CargoManager& cm = CargoManager::getInstance();
 		cm.setMoney(cm.getMoney() + pay);
 	}
 }

@@ -7,7 +7,7 @@
 using namespace std;
 int main()
 {
-	CargoManager cm = CargoManager::getInstance();
+	CargoManager& cm = CargoManager::getInstance();
 
 	while (true)
 	{

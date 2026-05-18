@@ -33,7 +33,15 @@ void CargoManager::addCargoForm() // 잘못된입력값 예외처리 생략
 
 void CargoManager::addCargo(string& name, bool isExpress, int priority)
 {
-	Cargo* newCargo = new Cargo(name, isExpress, priority);
+	Cargo* newCargo = nullptr;
+	if (isExpress)
+	{
+		newCargo = new ExpressCargo(name, priority);
+	}
+	else
+	{
+		newCargo = new NormalCargo(name, priority);
+	}
 
 	if (size >= capacity) // 용량초과시 용량2배
 	{
@@ -71,6 +79,7 @@ string statusToString(Status s)
 	if (s == Status::DELIVERING) return "배송중";
 	else if (s == Status::WATING) return "대기중";
 	else if (s == Status::DONE) return "배송완료";
+	return "";
 }
 
 void CargoManager::printCargo()
@@ -190,8 +199,8 @@ void CargoManager::buyDeliverer()
 		
 		delete[] temp;
 	}
+	deliverers[deliverersSize] = new Deliverer(deliverersSize+1);
 	deliverersSize++;
-	deliverers[deliverersSize - 1] = new Deliverer(deliverersSize);
 	cout << "배송기사가 " << deliverersSize - 1 << "명에서 " << deliverersSize << "명이 됐습니다." << endl;
 }
 
@@ -210,7 +219,7 @@ CargoManager::CargoManager()
 	deliverers = new Deliverer * [delivererCapacity];
 	for (int i = 0; i < delivererCapacity; i++)
 	{
-		deliverers[i] = new Deliverer(deliverersSize);
+		deliverers[i] = new Deliverer(deliverersSize+1);
 		deliverersSize++;
 	}
 }

@@ -23,6 +23,7 @@
     <ClCompile Include="CargoManager.cpp" />
     <ClCompile Include="Deliverer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NormalCargo.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Downloads\계획서.docx" />
@@ -31,6 +32,7 @@
     <ClInclude Include="Cargo.h" />
     <ClInclude Include="CargoManager.h" />
     <ClInclude Include="Deliverer.h" />
+    <ClInclude Include="ExpressCargo.h" />
     <ClInclude Include="PlayManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -1,5 +1,6 @@
 #pragma once
-#include "Cargo.h"
+#include "ExpressCargo.h"
+#include "NormalCargo.h"
 #include "Deliverer.h"
 
 

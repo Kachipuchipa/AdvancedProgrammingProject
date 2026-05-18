@@ -6,9 +6,10 @@ enum Status { WATING, DELIVERING, DONE};
 
 class Cargo
 {
+protected:
 	string name;
 
-	bool isExpress; // 특급여부
+	int pay;
 
 	int priority; // 우선도 1 ~ 10
 
@@ -18,11 +19,12 @@ class Cargo
 	
 public:
 	Cargo();
-	Cargo(string name, bool isExpress, int priority);
+	Cargo(string name, int priority);
 	
 	int getPriority();
 	string getName();
-	bool IsExpress();
+	virtual bool IsExpress() = 0;
+	int getPay();
 	Status getStatus();
 	int getDelivererID();
 	void setStatus(Status s);

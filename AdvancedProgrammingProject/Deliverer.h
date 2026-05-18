@@ -9,8 +9,6 @@ class Deliverer
 	int id ;
 	Cargo* assignedCargo;
 	bool isAssigned = false;
-	
-	int pay = 10000;
 
 	time_t deliver_start;
 

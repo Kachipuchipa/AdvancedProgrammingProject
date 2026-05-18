@@ -3,14 +3,13 @@
 inline Cargo::Cargo()
 {
 	name = "EMPTY";
-	isExpress = false;
 	priority = -1;
 	status = WATING;
 	delivererID = -1;
 }
 
-Cargo::Cargo(string name, bool isExpress, int priority)
-	:name(name), isExpress(isExpress), priority(priority),status(WATING),delivererID(-1) 
+Cargo::Cargo(string name, int priority)
+	:name(name), priority(priority),status(WATING),delivererID(-1) 
 	//status와 delivererID는 반드시 추후에 결정되기에 고정값
 {
 	
@@ -26,9 +25,9 @@ string Cargo::getName()
 	return name;
 }
 
-bool Cargo::IsExpress()
+int Cargo::getPay()
 {
-	return isExpress;
+	return pay;
 }
 
 Status Cargo::getStatus()

@@ -1,6 +1,6 @@
 #include "Cargo.h"
 
-inline Cargo::Cargo()
+Cargo::Cargo()
 {
 	name = "EMPTY";
 	priority = -1;
@@ -15,7 +15,7 @@ Cargo::Cargo(string name, int priority)
 	
 }
 
-inline Cargo::~Cargo() {}
+Cargo::~Cargo() {}
 
 int Cargo::getPriority()
 {

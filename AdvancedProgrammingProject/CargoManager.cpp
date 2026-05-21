@@ -223,3 +223,14 @@ CargoManager::CargoManager()
 		deliverersSize++;
 	}
 }
+
+CargoManager::~CargoManager()
+{
+	for (int i = 0; i < size; i++)
+		delete cargos[i];
+	delete[] cargos;
+
+	for (int i = 0; i < deliverersSize; i++)
+		delete deliverers[i];
+	delete[] deliverers;
+}

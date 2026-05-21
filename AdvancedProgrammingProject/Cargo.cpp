@@ -15,6 +15,8 @@ Cargo::Cargo(string name, int priority)
 	
 }
 
+inline Cargo::~Cargo() {}
+
 int Cargo::getPriority()
 {
 	return priority;

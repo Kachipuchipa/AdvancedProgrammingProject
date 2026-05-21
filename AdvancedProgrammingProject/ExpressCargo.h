@@ -5,14 +5,10 @@ class ExpressCargo : public Cargo
 {
 private:
 	
-public://TODO cpp로 옮기기
+public:
 	
-	ExpressCargo(string name,int priority)
-		:Cargo(name, priority)
-	{
-		pay = 10000;
-	}
+	ExpressCargo(string name,int priority);
 
-	bool IsExpress() override { return true; }
-	
+	bool IsExpress() override;
+	virtual ~ExpressCargo();
 };

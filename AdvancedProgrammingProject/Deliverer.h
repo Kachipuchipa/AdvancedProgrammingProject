@@ -16,6 +16,7 @@ class Deliverer
 public:
 	
 	Deliverer(int id);
+	~Deliverer();
 
 	int getId();
 	bool IsAssigned();

@@ -20,7 +20,8 @@ protected:
 public:
 	Cargo();
 	Cargo(string name, int priority);
-	
+	virtual ~Cargo();
+
 	int getPriority();
 	string getName();
 	virtual bool IsExpress() = 0;

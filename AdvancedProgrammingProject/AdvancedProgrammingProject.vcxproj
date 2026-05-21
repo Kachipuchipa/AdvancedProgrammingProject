@@ -22,7 +22,9 @@
     <ClCompile Include="Cargo.cpp" />
     <ClCompile Include="CargoManager.cpp" />
     <ClCompile Include="Deliverer.cpp" />
+    <ClCompile Include="ExpressCargo.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NormalCargo.cpp" />
     <ClCompile Include="NormalCargo.h" />
   </ItemGroup>
   <ItemGroup>

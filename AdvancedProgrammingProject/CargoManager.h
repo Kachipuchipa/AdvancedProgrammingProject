@@ -46,5 +46,5 @@ public:
 
 	void checkAccount();
 	
-	//TODO ¼Ò¸êÀÚ
+	~CargoManager();
 };

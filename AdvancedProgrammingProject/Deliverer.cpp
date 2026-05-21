@@ -10,6 +10,8 @@ Deliverer::Deliverer(int id)
 	//deliver_start = 0;
 }
 
+inline Deliverer::~Deliverer() {}
+
 int Deliverer::getId()
 {
 	return id;

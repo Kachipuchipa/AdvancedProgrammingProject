@@ -7,10 +7,7 @@ private:
 	
 public:
 
-	NormalCargo(string name, int priority)
-		:Cargo(name, priority)
-	{
-		pay = 5000;
-	}
-	bool IsExpress() override { return false; }
+	NormalCargo(string name, int priority);
+	virtual ~NormalCargo();
+	bool IsExpress() override;
 };

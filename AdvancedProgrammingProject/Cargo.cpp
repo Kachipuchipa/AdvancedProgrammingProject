@@ -61,7 +61,19 @@ bool Cargo::operator>(const Cargo& other) const
 
 std::ostream& operator<<(std::ostream& os, const Cargo& c)
 {
-	os << c.name << " | " << (c.IsExpress() ? "특급" : "일반")
-		<< " | 우선도: " << c.priority;
+	os << c.name
+		<< " | " << (c.IsExpress() ? "특급" : "일반")
+		<< " | 우선도: " << c.priority
+		<< " | 상태: " << statusToString(c.status)
+		<< " | 담당기사: ";
+	if (c.delivererID == -1) os << "미정";
+	else os << c.delivererID << "번 기사님";
 	return os;
+}
+
+static string statusToString(Status s)
+{
+	if (s == Status::DELIVERING) return "배송중";
+	else if (s == Status::WATING) return "대기중";
+	else return "배송완료";
 }

@@ -82,7 +82,8 @@ string statusToString(Status s)
 	return "";
 }
 
-void CargoManager::printCargo()
+
+void CargoManager::printCargo() 
 {
 	cout << "=========================================" << endl;
 	cout << "                 물류 조회                " << endl;
@@ -96,17 +97,12 @@ void CargoManager::printCargo()
 
 	for (int i = 0; i < size; i++)
 	{
-		cout << i + 1 << "." << endl;;
-		cout << "이름 : " << cargos[i]->getName() << endl;
-		cout << "특급여부 : " << ((cargos[i]->IsExpress()) ? "특급" : "일반") << endl;
-		cout << "상태 : " << statusToString(cargos[i]->getStatus()) << endl;
-		cout << "담당기사 : ";
-		if (cargos[i]->getDelivererID() == -1) cout << "미정";
-		else cout << cargos[i]->getDelivererID() << "번 기사님"; //배송완료상태라면 배송을 담담했던 기사님
-		cout << endl << endl << endl;
+		cout << i + 1 << ". " << *cargos[i] << endl << endl;
 	}
 	
 }
+
+
 
 void CargoManager::saveFile()
 {

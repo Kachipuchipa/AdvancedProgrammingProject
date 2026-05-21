@@ -1,4 +1,4 @@
-﻿  CargoManager.cpp
-  AdvancedProgrammingProject.vcxproj -> C:\Users\b1235\source\repos\AdvancedProgrammingProject\x64\Debug\AdvancedProgrammingProject.exe
-  'pwsh.exe'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
-  배치 파일이 아닙니다.
+﻿x64\Debug\NormalCargo.obj : warning LNK4042: 개체가 두 번 이상 지정되었습니다. 나머지는 무시됩니다.
+CargoManager.obj : error LNK2019: "public: __cdecl ExpressCargo::ExpressCargo(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int)" (??0ExpressCargo@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z)"private: void __cdecl CargoManager::addCargo(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,bool,int)" (?addCargo@CargoManager@@AEAAXAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_NH@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
+CargoManager.obj : error LNK2019: "public: __cdecl Deliverer::~Deliverer(void)" (??1Deliverer@@QEAA@XZ)"public: void * __cdecl Deliverer::`scalar deleting destructor'(unsigned int)" (??_GDeliverer@@QEAAPEAXI@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
+C:\Users\b1235\source\repos\AdvancedProgrammingProject\x64\Debug\AdvancedProgrammingProject.exe : fatal error LNK1120: 2개의 확인할 수 없는 외부 참조입니다.

@@ -59,6 +59,13 @@ bool Cargo::operator>(const Cargo& other) const
 	return priority > other.priority;
 }
 
+static string statusToString(Status s)
+{
+	if (s == Status::DELIVERING) return "배송중";
+	else if (s == Status::WATING) return "대기중";
+	else return "배송완료";
+}
+
 std::ostream& operator<<(std::ostream& os, const Cargo& c)
 {
 	os << c.name
@@ -71,9 +78,3 @@ std::ostream& operator<<(std::ostream& os, const Cargo& c)
 	return os;
 }
 
-static string statusToString(Status s)
-{
-	if (s == Status::DELIVERING) return "배송중";
-	else if (s == Status::WATING) return "대기중";
-	else return "배송완료";
-}

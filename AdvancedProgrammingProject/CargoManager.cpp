@@ -74,15 +74,6 @@ void CargoManager::addCargo(string& name, bool isExpress, int priority)
 	
 }
 
-string statusToString(Status s)
-{
-	if (s == Status::DELIVERING) return "배송중";
-	else if (s == Status::WATING) return "대기중";
-	else if (s == Status::DONE) return "배송완료";
-	return "";
-}
-
-
 void CargoManager::printCargo() 
 {
 	cout << "=========================================" << endl;
@@ -106,10 +97,56 @@ void CargoManager::printCargo()
 
 void CargoManager::saveFile()
 {
+	ofstream ofs("cargos.txt");
+	if (!ofs.is_open())
+	{
+		cout << "파일 저장 실패" << endl;
+		return;
+	}
+	for (int i = 0; i < size; i++)
+	{
+		ofs << cargos[i]->getName() << "\t"
+			<< cargos[i]->IsExpress() << "\t"
+			<< cargos[i]->getPriority() << "\t"
+			<< (int)cargos[i]->getStatus() << "\t"
+			<< cargos[i]->getDelivererID() << "\n";
+	}
+	ofs.close();
+	cout << "저장 완료 (" << size << "건)" << endl;
 }
 
-void CargoManager::loadFile() { // TODO 
-	
+void CargoManager::loadFile()
+{
+	ifstream ifs("cargos.txt");
+	if (!ifs.is_open())
+	{
+		cout << "저장 파일 없음 (cargos.txt)" << endl;
+		return;
+	}
+	cout << "=========================================" << endl;
+	cout << "            파일 배송 현황 조회           " << endl;
+	cout << "=========================================" << endl;
+
+	string name;
+	int isExpress, priority, statusInt, delivererID;
+	int count = 0;
+
+	while (ifs >> name >> isExpress >> priority >> statusInt >> delivererID)
+	{
+		count++;
+		string statusStr = (statusInt == 0) ? "대기중" : (statusInt == 1) ? "배송중" : "배송완료";
+		cout << count << ". " << name
+			<< " | " << (isExpress ? "특급" : "일반")
+			<< " | 우선도: " << priority
+			<< " | 상태: " << statusStr
+			<< " | 담당기사: ";
+		if (delivererID == -1) cout << "미정";
+		else cout << delivererID << "번 기사님";
+		cout << endl;
+	}
+	ifs.close();
+
+	if (count == 0) cout << "저장된 내역 없음" << endl;
 }
 
 void CargoManager::assignCargo()

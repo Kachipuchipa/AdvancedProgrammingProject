@@ -51,3 +51,17 @@ void Cargo::setDelivererID(int id)
 {
 	delivererID = id;
 }
+
+bool Cargo::operator>(const Cargo& other) const
+{
+	if (IsExpress() != other.IsExpress())
+		return IsExpress() > other.IsExpress();
+	return priority > other.priority;
+}
+
+std::ostream& operator<<(std::ostream& os, const Cargo& c)
+{
+	os << c.name << " | " << (c.IsExpress() ? "특급" : "일반")
+		<< " | 우선도: " << c.priority;
+	return os;
+}

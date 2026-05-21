@@ -9,6 +9,6 @@ public:
 	
 	ExpressCargo(string name,int priority);
 
-	bool IsExpress() override;
+	bool IsExpress() const override;
 	virtual ~ExpressCargo();
 };

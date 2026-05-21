@@ -9,5 +9,5 @@ public:
 
 	NormalCargo(string name, int priority);
 	virtual ~NormalCargo();
-	bool IsExpress() override;
+	bool IsExpress() const override;
 };

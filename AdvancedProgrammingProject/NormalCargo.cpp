@@ -1,11 +1,11 @@
 #include "NormalCargo.h"
 
-inline NormalCargo::NormalCargo(string name, int priority)
+NormalCargo::NormalCargo(string name, int priority)
 	:Cargo(name, priority)
 {
 	pay = 5000;
 }
 
-inline NormalCargo::~NormalCargo() {}
+NormalCargo::~NormalCargo() {}
 
-inline bool NormalCargo::IsExpress() { return false; }
+bool NormalCargo::IsExpress() const { return false; }

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 using std::string;
 
 enum Status { WATING, DELIVERING, DONE};
@@ -24,11 +25,16 @@ public:
 
 	int getPriority();
 	string getName();
-	virtual bool IsExpress() = 0;
+	virtual bool IsExpress() const = 0;
 	int getPay();
 	Status getStatus();
 	int getDelivererID();
 	void setStatus(Status s);
 	void setDelivererID(int id);
+
+	bool operator>(const Cargo& other) const;
+	friend std::ostream& operator<<(std::ostream& os, const Cargo& c);
+
+
 };
 

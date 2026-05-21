@@ -6,6 +6,6 @@ inline ExpressCargo::ExpressCargo(string name, int priority)
 	pay = 10000;
 }
 
-inline bool ExpressCargo::IsExpress() { return true; }
+inline bool ExpressCargo::IsExpress() const { return true; }
 
 inline ExpressCargo::~ExpressCargo() {}
